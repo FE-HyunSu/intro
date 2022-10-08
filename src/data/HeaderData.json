@@ -1,0 +1,27 @@
+[
+  {
+    "linkType": "scroll",
+    "tagName": ".hello-col",
+    "menuName": "intro"
+  },
+  {
+    "linkType": "scroll",
+    "tagName": ".skill-col",
+    "menuName": "skill"
+  },
+  {
+    "linkType": "scroll",
+    "tagName": ".motion-col",
+    "menuName": "front"
+  },
+  {
+    "linkType": "scroll",
+    "tagName": ".front-col",
+    "menuName": "blog"
+  },
+  {
+    "linkType": "scroll",
+    "tagName": ".contact-col",
+    "menuName": "contact"
+  }
+]

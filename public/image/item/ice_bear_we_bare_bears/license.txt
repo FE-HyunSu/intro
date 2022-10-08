@@ -1,0 +1,11 @@
+Model Information:
+* title:	Ice Bear (We Bare Bears)
+* source:	https://sketchfab.com/3d-models/ice-bear-we-bare-bears-77f6d43d4dc740dfb8a500743676a18c
+* author:	nissato (https://sketchfab.com/Nissato)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Ice Bear (We Bare Bears)" (https://sketchfab.com/3d-models/ice-bear-we-bare-bears-77f6d43d4dc740dfb8a500743676a18c) by nissato (https://sketchfab.com/Nissato) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

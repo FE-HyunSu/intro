@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DragNav</title>
+    <link rel="stylesheet" href="ssaklogCategory.css"/>
+  </head>
+<body>
+<div id="root">
+  <header></header>
+  <section class="lnb-col">
+    <h1>SSAKLOG</h1>
+    <dl>
+      <dt id="lnbInfo">
+        <strong><em>김현수</em>님의 싹로그</strong>
+        <button type="button" class="btn-edit" onclick="document.querySelector('.lnb-col').classList.add('mode-edit');">메뉴편집</button>
+        <button type="button" class="btn-complete" onclick="document.querySelector('.lnb-col').classList.remove('mode-edit');">완료</button>
+        <button type="button" class="btn-cancel" onclick="document.querySelector('.lnb-col').classList.remove('mode-edit');">취소</button>
+      </dt>
+      <dd id="lnbNav"></dd>
+    </dl>
+    <span class="item-moving">이동중</span>
+  </section>
+  <section class="content-col">
+    <p><strong></strong>싹로그 테스트 페이지 입니다.</p>
+  </section>
+</div>
+<script>
+  const navList = [
+  {
+     "nav1depth" : "전체보기",
+     "nav2depth" : 
+     [
+       {
+         "navName" : "서브메뉴1-1",
+         "link" : "link값"
+       },
+       {
+         "navName" : "서브메뉴1-2",
+         "link" : "link값"
+       },
+       {
+         "navName" : "서브메뉴1-3",
+         "link" : "link값"
+       }
+     ]
+   },
+   {
+     "nav1depth" : "대메뉴2",
+     "nav2depth" : 
+     [
+       {
+         "navName" : "서브메뉴2-1",
+         "link" : "link값"
+       },
+       {
+         "navName" : "서브메뉴2-2",
+         "link" : "link값"
+       }
+     ]
+   },
+   {
+     "nav1depth" : "대메뉴3",
+     "nav2depth" : 
+     [
+       {
+         "navName" : "서브메뉴3-1",
+         "link" : "link값"
+       },
+       {
+         "navName" : "서브메뉴3-2",
+         "link" : "link값"
+       }
+     ]
+   },
+   {
+     "nav1depth" : "메뉴이름이 긴 경우 메뉴이름이 긴 경우 메뉴이름이 긴 경우",
+     "nav2depth" : 
+     [
+       {
+         "navName" : "서브메뉴4-1",
+         "link" : "link값"
+       },
+       {
+         "navName" : "서브메뉴4-2 메뉴이름이 긴 경우 메뉴이름이 긴 경우 메뉴이름이 긴 경우",
+         "link" : "link값"
+       },
+       {
+         "navName" : "서브메뉴4-3",
+         "link" : "link값"
+       },
+       {
+         "navName" : "서브메뉴4-4",
+         "link" : "link값"
+       }
+     ]
+   }
+  ];
+
+  function navSetting(){
+    let lnbNav = document.getElementById('lnbNav');
+    let navContent = '';
+    let subContent = '';
+    let navIndex = 0;
+
+    lnbNav.style.maxHeight = window.innerHeight - document.getElementById('lnbInfo').offsetHeight - document.querySelector('h1').offsetHeight + 'px';
+    lnbNav.innerHTML = '<ul></ul>';
+
+    for(let i=0; i < navList.length; i++){
+      navContent = '';
+      subContent = '';
+
+      for(let j=0; j < navList[i].nav2depth.length; j++){
+        subContent +=
+        '<li class="item-2depth" id="menu_' + i + '_' + j + '">\n' +
+        '  <div class="btn-box">\n' +
+        '    <button type="button" class="btn-menu-move" onmousedown="navListMove(this)">이동</button>\n' +
+        '    <strong>' + navList[i].nav2depth[j].navName + '</strong>\n' +
+        '    <input type="text" value="' + navList[i].nav2depth[j].navName + '" />\n' +
+        '    <button type="button" class="btn-menu-del" onclick="navListDel(this);">삭제</button>\n' +
+        '  </div>\n' +
+        '</li>\n'
+      }
+
+      navContent += 
+      '<li class="item-1depth" id="menu_' + i + '">\n' +
+      '  <div class="btn-box">\n' +
+      '    <button type="button" class="btn-menu-toggle" onclick="btnToggle(this);">메뉴펼치기</button>\n' +
+      '    <button type="button" class="btn-menu-move" onmousedown="navListMove(this)">이동</button>\n' +
+      '    <strong>' + navList[i].nav1depth + '</strong>\n' +
+      '    <input type="text" value="' + navList[i].nav1depth + '" />\n' +
+      '    <button type="button" class="btn-menu-del" onclick="navListDel(this);">삭제</button>\n' +
+      '    <button type="button" class="btn-menu-add">추가</button>\n' +
+      '  </div>\n' +
+      '  <ul class="nav-sub">\n' + subContent + '</ul>\n' +
+      '</li>';
+      lnbNav.childNodes[0].innerHTML += navContent;
+    }
+  }
+
+  // e 요소의 index 값을 return.
+  function getIndex(e) {
+    let idx = 0;
+    while((e = e.previousSibling) !== null){
+      idx++;
+    }
+    return idx;
+  }
+
+  function btnToggle(e){
+    if(e.parentNode.parentNode.classList.value.indexOf('active') !== -1){
+      e.parentNode.parentNode.classList.remove('active');
+    } else {
+      e.parentNode.parentNode.classList.add('active');
+    }
+  }
+  function navListDel(e){
+    if(confirm('정말 삭제하시겠습니까? 하위에 등록된 메뉴 및 게시물이 모두 삭제됩니다.')){
+      e.parentNode.parentNode.remove();
+    }
+  }
+
+function navListMove(e){
+  let clickItem = e.parentNode.parentNode;
+  let clickPointer = document.querySelector('.item-moving');
+  let menuArr = [];
+  let openMenu = [];
+  clickPointer.classList.add('active');
+
+  let item1Depth = document.getElementById('lnbNav').querySelectorAll('.item-1depth');
+  let item2Depth = document.getElementById('lnbNav').querySelectorAll('.item-2depth');
+  for(let i=0; i < item1Depth.length; i++){
+    if(item1Depth[i].classList.value.indexOf('active') !== -1){
+      openMenu.push(i);
+    }
+  }
+  
+  if(clickItem.classList.value.indexOf('item-1depth') !== -1){
+    for(let i=0; i < item1Depth.length; i++){
+      console.log(i + '번째 요소는 1댑스 ' +  item1Depth[i].getBoundingClientRect().top);
+      menuArr.push(item1Depth[i].getBoundingClientRect().top);
+    }
+  }
+  if(clickItem.classList.value.indexOf('item-2depth') !== -1){
+    for(let i=0; i < item2Depth.length; i++){
+      console.log(i + '번째 요소는 2댑스 이고 ' + item2Depth[i].getBoundingClientRect().top);
+      menuArr.push([item2Depth[i].id.split('_')[1], item2Depth[i].id.split('_')[2], item2Depth[i].getBoundingClientRect().top]);
+    }
+  }
+
+  document.body.append(clickPointer);
+
+  function moveAt(pageX, pageY) {
+    clickPointer.style.left = pageX - clickPointer.offsetWidth / 2 + 'px';
+    clickPointer.style.top = pageY - clickPointer.offsetHeight / 2 + 'px';
+  }
+
+  moveAt(event.pageX, event.pageY);
+
+  function onMouseMove(event) {
+    moveAt(event.pageX, event.pageY);
+  }
+
+  document.addEventListener('mousemove', onMouseMove);
+
+  clickPointer.onmouseup = function() {
+    document.removeEventListener('mousemove', onMouseMove); // mousemove 이벤트를 remove
+    clickPointer.onmouseup = null; // 
+    clickPointer.classList.remove('active'); // pointer의 active 클래스 제거
+    console.log(clickPointer.style.top); // pointer의 top 높이값 체크
+
+    if(clickItem.classList.value.indexOf('item-1depth') !== -1){
+      let menuN = 0;
+      console.log(menuArr);
+      
+      for(let i=0; i < menuArr.length; i++){
+        if(menuArr[i] < Number(clickPointer.style.top.split('px')[0])){
+          menuN = i;
+        }
+      }
+      console.log('내가 선택한 요소는 ' + Number(clickItem.id.split('_')[1]) + '번째 / 옮기려는 위치는 : ' + menuN);
+
+      let targetArr = navList[Number(clickItem.id.split('_')[1])];
+      navList.splice(Number(clickItem.id.split('_')[1]), 1);
+      navList.splice([menuN],0, targetArr);
+      navSetting();
+    }
+
+    if(clickItem.classList.value.indexOf('item-2depth') !== -1){
+      let menuN = 0;
+      let subMenuN = 0;
+      console.log(menuArr);
+      
+      for(let i=0; i < menuArr.length; i++){
+        if(menuArr[i][2] < Number(clickPointer.style.top.split('px')[0])){
+          menuN = menuArr[i][0];
+          subMenuN = menuArr[i][1];
+        }
+      }
+
+      console.log('내가 선택한 요소는 ' + clickItem.id.split('_')[1] + ' 의 ' + clickItem.id.split('_')[2] + '번째 / 옮기려는 위치는 : ' + menuN + ' 의 ' + subMenuN);
+      let targetArr = navList[Number(clickItem.id.split('_')[1])].nav2depth[Number(clickItem.id.split('_')[2])];
+      navList[Number(clickItem.id.split('_')[1])].nav2depth.splice(Number(clickItem.id.split('_')[2]), 1);
+      navList[menuN].nav2depth.splice([subMenuN],0, targetArr);
+      navSetting();
+    }
+
+    for(let i=0; i < openMenu.length; i++){
+      document.querySelectorAll('.item-1depth')[openMenu[i]].classList.add('active');
+    }
+    
+  };
+};
+
+  window.addEventListener('load', function(){
+    navSetting();
+  });
+</script>
+  </body>
+</html>

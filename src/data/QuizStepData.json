@@ -1,0 +1,50 @@
+[
+  {
+    "category": "category-ei",
+    "question": "나의 에너지 타입",
+    "option": [{
+      "value": "E",
+      "content": "외향형 (대인관계 사교적, 활동적)"
+    },
+    {
+      "value": "I",
+      "content": "내향형 (대인관계 신중함, 집중력)"
+    }]
+  },
+  {
+    "category": "category-sn",
+    "question": "무언가를 인식 할 때",
+    "option": [{
+      "value": "S",
+      "content": "감각형 (실제 경험 중시 정확, 철저한 일처리)"
+    },
+    {
+      "value": "N",
+      "content": "직관형 (직관에 의존 신속, 비약적)"
+    }]
+  },
+  {
+    "category": "category-tf",
+    "question": "내가 생각하는 판단기준",
+    "option": [{
+      "value": "T",
+      "content": "사고형 (진실과 사실에 관심 논리적 분석적)"
+    },
+    {
+      "value": "F",
+      "content": "감정형 (사람, 관계에 관심 상황적, 포괄적)"
+    }]
+  },
+  {
+    "category": "category-jp",
+    "question": "내 생활 방식",
+    "option": [{
+      "value": "J",
+      "content": "판단형 (분명한 목적, 방향 철저한 사전 계획)"
+    },
+    {
+      "value": "P",
+      "content": "인식형 (상황에 맞는 변화 융통과 적응)"
+    }]
+  }
+]

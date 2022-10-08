@@ -1,0 +1,628 @@
+.mbti-col {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  &.start {
+    opacity: 0;
+    transition: 1s;
+  }
+  &.start.active {
+    opacity: 1;
+  }
+
+  &.aqtitude-start {
+    .begin-box {
+      dl {
+        dt {
+          animation: motion-hide 1s 0.4s forwards;
+        }
+        dd {
+          p {
+            animation: motion-hide 1s 0.2s forwards;
+          }
+          button {
+            animation: motion-hide 1s forwards;
+          }
+        }
+      }
+    }
+  }
+
+  .begin-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: no-repeat 100% 0 / 67.2rem auto;
+    dl {
+      width: 75rem;
+      z-index: 2;
+      dt {
+        position: relative;
+        padding: 3rem 0 3rem 9rem;
+        font-weight: 800;
+        font-size: 7rem;
+        line-height: 1.3;
+        text-align: center;
+        span {
+          position: absolute;
+          top: 0;
+          left: calc(50% - 24rem);
+          width: 14rem;
+          height: 100%;
+          background: url(../images/img_mbti_title.png) no-repeat 0 50% / 100%
+            auto;
+          &::before {
+            content: '';
+            position: absolute;
+            top: 1.8rem;
+            left: 11.6rem;
+            width: 1.4rem;
+            height: 1.6rem;
+            background-color: rgba(#fff000, 0.9);
+            border-radius: 100%;
+            transform-origin: 50% 100%;
+            animation: motion-fire 1s 0.1s infinite;
+            z-index: 2;
+          }
+          &::after {
+            content: '';
+            position: absolute;
+            top: 0.8rem;
+            left: 10.7rem;
+            width: 3rem;
+            height: 3rem;
+            background-color: rgba(#8b2c3f, 0.8);
+            border-radius: 100%;
+            transform-origin: 50% 100%;
+            animation: motion-fire 1s infinite;
+            z-index: 1;
+          }
+        }
+        em {
+          display: inline-block;
+          position: relative;
+          &:after {
+            content: '';
+            position: absolute;
+            bottom: 0.2rem;
+            left: 0;
+            width: 100%;
+            height: 0.8rem;
+            background-color: #e4c739;
+            border-radius: 1rem;
+            z-index: -1;
+          }
+        }
+      }
+      dd {
+        margin-top: 2rem;
+        padding-top: 4rem;
+        font-weight: 400;
+        font-size: 3.3rem;
+        line-height: 1.4;
+        color: #3b3b4d;
+        border-top: 0.2rem solid #eee;
+        p {
+          text-align: center;
+        }
+        button {
+          min-width: 100%;
+          margin-top: 5rem;
+          padding: 3rem 1rem;
+          font-weight: 500;
+          font-size: 3.6rem;
+          color: #000;
+          background-color: #fde25c;
+          border-radius: 0.4rem;
+          transition: 0.3s;
+        }
+      }
+    }
+  }
+
+  .step-box {
+    position: relative;
+    width: 75rem;
+    margin: auto;
+    padding: 0 0 10rem;
+
+    dt {
+      position: relative;
+      margin-left: 5rem;
+      padding-top: 22rem;
+      font-weight: 700;
+      font-size: 6rem;
+      color: #000;
+      background-repeat: no-repeat;
+      background-position: -1rem 0;
+      background-size: 11.2rem;
+      opacity: 0;
+      &:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 30rem;
+        height: 20rem;
+        opacity: 0.8;
+      }
+      &.category-ei:before {
+        background: url(../images/img_mbti_category_1.png) no-repeat 0 0 / 100%
+          auto;
+      }
+      &.category-sn:before {
+        background: url(../images/img_mbti_category_2.png) no-repeat 0 0 / 100%
+          auto;
+      }
+      &.category-tf:before {
+        background: url(../images/img_mbti_category_3.png) no-repeat 0 0 / 100%
+          auto;
+      }
+      &.category-jp:before {
+        background: url(../images/img_mbti_category_4.png) no-repeat 0 0 / 100%
+          auto;
+      }
+      &.active {
+        animation: motion-setp 0.8s ease-in-out forwards;
+      }
+      strong {
+        display: block;
+      }
+    }
+    dd {
+      padding-top: 5.6rem;
+      label {
+        display: block;
+        cursor: pointer;
+        input {
+          position: absolute;
+          & + strong {
+            display: block;
+            margin: 0 0 1.6rem 5rem;
+            padding: 3rem 2.4rem;
+            font-weight: 400;
+            font-size: 3rem;
+            line-height: 1.5;
+            color: #000;
+            text-align: left;
+            background-color: #eee;
+            border-radius: 0.8rem;
+            word-break: keep-all;
+            opacity: 0;
+          }
+          &:checked + strong {
+            color: #3a3a3a;
+            background-color: #fde25c;
+          }
+          &.active + strong {
+            animation: motion-setp 0.8s 0.3s ease-in-out forwards;
+          }
+        }
+        &:hover {
+          input {
+            & + strong {
+              color: #3a3a3a;
+              background-color: #fde25c;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .progress-box {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    min-height: 80vh;
+    background-color: rgba(#fff, 0.8);
+    z-index: 5;
+
+    .progress-item {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      width: 20rem;
+      height: 12rem;
+      margin: auto;
+      padding-top: 8rem;
+      font-weight: 700;
+      font-size: 1.6rem;
+      text-align: center;
+      box-sizing: border-box;
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        width: 7.2rem;
+        height: 7.2rem;
+        margin: auto;
+        animation: motion-progress-before 3s infinite;
+        z-index: 7;
+      }
+
+      &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        width: 7.2rem;
+        height: 7.2rem;
+        margin: auto;
+        animation: motion-progress-after 3s infinite;
+        z-index: 6;
+      }
+    }
+  }
+
+  .result-box {
+    display: none;
+    width: 75rem;
+    margin: auto;
+    dl {
+      padding-bottom: 5rem;
+      text-align: center;
+      dt {
+        position: relative;
+        padding: 25rem 0 1.5rem;
+        font-weight: 700;
+        font-size: 3rem;
+        color: #3b3b4d;
+        text-align: center;
+        animation: motion-setp 0.8s 0.3s ease-in-out backwards;
+        strong {
+          display: block;
+          position: relative;
+          font-weight: 800;
+          font-size: 7rem;
+          color: #000;
+          background-repeat: no-repeat;
+          background-position: 100% 50%;
+          background-size: 3.6rem;
+          text-align: center;
+        }
+        &::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          right: 0;
+          left: 0;
+          width: 26rem;
+          height: 24rem;
+          margin: auto;
+          background-repeat: no-repeat;
+          background-position: 50% 0;
+          background-size: 100%;
+        }
+        &.INTJ::before {
+          background-image: url(../images/img_intj.png);
+        }
+        &.INTP::before {
+          background-image: url(../images/img_intp.png);
+        }
+        &.ENTJ::before {
+          background-image: url(../images/img_entj.png);
+        }
+        &.ENTP::before {
+          background-image: url(../images/img_entp.png);
+        }
+        &.INFJ::before {
+          background-image: url(../images/img_infj.png);
+        }
+        &.INFP::before {
+          background-image: url(../images/img_infp.png);
+        }
+        &.ENFJ::before {
+          background-image: url(../images/img_enfj.png);
+        }
+        &.ENFP::before {
+          background-image: url(../images/img_enfp.png);
+        }
+        &.ISTJ::before {
+          background-image: url(../images/img_istj.png);
+        }
+        &.ISFJ::before {
+          background-image: url(../images/img_isfj.png);
+        }
+        &.ESTJ::before {
+          background-image: url(../images/img_estj.png);
+        }
+        &.ESFJ::before {
+          background-image: url(../images/img_esfj.png);
+        }
+        &.ISTP::before {
+          background-image: url(../images/img_istp.png);
+        }
+        &.ESTP::before {
+          background-image: url(../images/img_estp.png);
+        }
+        &.ESFP::before {
+          background-image: url(../images/img_esfp.png);
+        }
+        &.ISFP::before {
+          background-image: url(../images/img_isfp.png);
+        }
+      }
+      dd {
+        margin-top: 2rem;
+        padding-top: 3rem;
+        border-top: 0.2rem solid #eee;
+        p {
+          padding: 0 1rem;
+          font-weight: 400;
+          font-size: 3rem;
+          line-height: 1.6;
+          color: #3b3b4d;
+          text-align: center;
+          word-break: keep-all;
+          animation: motion-setp 0.8s 0.6s ease-in-out backwards;
+        }
+        button {
+          min-width: 80%;
+          margin-top: 4rem;
+          padding: 2.4rem 1rem;
+          font-weight: 500;
+          font-size: 3rem;
+          color: #000;
+          background-color: #fde25c;
+          border-radius: 0.4rem;
+          animation: motion-setp 0.8s 0.9s ease-in-out backwards;
+          transition: 0.3s;
+          &.btn-text {
+            position: relative;
+            width: auto;
+            min-width: auto;
+            margin-top: 2rem;
+            padding: 0.3rem 0;
+            font-size: 2.4rem;
+            color: #3a3a3a;
+            background-color: transparent;
+            animation: motion-setp 0.8s 1.5s ease-in-out backwards;
+            &::after {
+              content: '';
+              position: absolute;
+              bottom: 0;
+              left: 0;
+              width: 100%;
+              height: 0.1rem;
+              border-bottom: 0.1rem solid #666;
+            }
+          }
+        }
+        span {
+          display: block;
+          padding-top: 1rem;
+          font-weight: 400;
+          font-size: 2.4rem;
+          color: #999;
+          animation: motion-setp 0.8s 1.2s ease-in-out backwards;
+        }
+      }
+    }
+    .second-recommend {
+      p {
+        padding-bottom: 2rem;
+        font-weight: 800;
+        font-size: 2.4rem;
+        color: #000;
+        text-align: center;
+      }
+    }
+  }
+
+  &.result-view {
+    .progress-box {
+      display: none;
+    }
+    .result-box {
+      display: block;
+    }
+  }
+  .step-progress {
+    position: absolute;
+    top:auto;
+    bottom: 4rem;
+    left: 0;
+    width: 100%;
+    height: 1rem;
+    background-color: #f7f7fc;
+    z-index: 2;
+    span {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 0;
+      height: 100%;
+      background-color: #fde25c;
+      transition: 0.5s;
+    }
+  }
+}
+
+
+
+@keyframes motion-fire {
+  0% {
+    transform: scale(1, 1);
+  }
+  20% {
+    transform: scale(0.7, 1);
+  }
+  40% {
+    transform: scale(1, 0.8);
+  }
+  55% {
+    transform: scale(1, 1);
+  }
+  70% {
+    transform: scale(0.6, 1.1);
+  }
+  85% {
+    transform: scale(1, 0.8);
+  }
+  100% {
+    transform: scale(1, 1);
+  }
+}
+
+@keyframes motion-setp {
+  0% {
+    margin-left: 5rem;
+    background-position: 2rem 0;
+    opacity: 0;
+  }
+  100% {
+    margin-left: 0rem;
+    background-position: 0 0;
+    opacity: 1;
+  }
+}
+
+@keyframes motion-hide {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .mbti-col {
+    .inner-col {
+      width: 90%;
+      margin: auto;
+    }
+    .begin-box {
+      max-width: 75rem;
+      height: 80rem;
+      margin: 0 auto;
+      background-position: 100% 0;
+      justify-content: center;
+      dl {
+        padding: 0 4.2rem;
+        dt {
+          font-weight: 700;
+          font-size: 6rem;
+          line-height: 1.3;
+          em {
+            &:after {
+              height: 1.6rem;
+            }
+          }
+        }
+        dd {
+          padding-top: 4rem;
+          font-size: 3.6rem;
+          span {
+            display: block;
+          }
+          button {
+            width: 100%;
+            margin-top: 8rem;
+            padding: 3rem 0;
+            font-size: 3.6rem;
+          }
+        }
+      }
+    }
+
+    .step-box {
+      width: 100%;
+      max-width: 66.6rem;
+      dl {
+        dt {
+          padding-top: 19.2rem;
+          font-size: 5.5rem;
+          background-size: 17.2rem;
+        }
+        dd {
+          label {
+            input {
+              & + strong {
+                padding: 3rem 3rem;
+                font-size: 3rem;
+              }
+            }
+            &:hover {
+              input {
+                & + strong {
+                  color: #000;
+                  background-color: #eee;
+                }
+              }
+            }
+          }
+          button {
+            margin-top: 6.4rem;
+          }
+        }
+      }
+    }
+    .result-box {
+      width: 100%;
+      dl {
+        dt {
+          padding-top: 23rem;
+          font-size: 3.6rem;
+          strong {
+            font-size: 7rem;
+            padding: 1rem 0;
+            background-size: 7.2rem;
+          }
+        }
+        dd {
+          p {
+            padding: 1rem 0 0 0;
+            font-size: 3.2rem;
+          }
+          a {
+            width: 66.6rem;
+            padding: 3.6rem 0;
+            font-size: 2.7rem;
+            border-radius: 0.5rem;
+          }
+        }
+      }
+      .second-recommend {
+        p {
+          padding-bottom: 4rem;
+          font-weight: 700;
+          font-size: 4rem;
+        }
+      }
+    }
+
+    .progress-box {
+      .progress-item {
+        width: 40rem;
+        height: 24rem;
+        padding-top: 18rem;
+        font-weight: 700;
+        font-size: 2.8rem;
+
+        &::before {
+          width: 16rem;
+          height: 16rem;
+        }
+
+        &::after {
+          width: 16rem;
+          height: 16rem;
+        }
+      }
+    }
+
+    .step-progress {
+      height: 1.2rem;
+    }
+  }
+}

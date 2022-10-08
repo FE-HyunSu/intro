@@ -1,0 +1,186 @@
+.yta-intro-col {
+	position: relative;
+	width: 100%;
+	height: calc(100vh * 5);
+	overflow: hidden;
+	.intro-bg {
+		position: absolute;
+		top: 0;
+		right: 0;
+		left: 0;
+		width: 100%;
+		min-height: 100vh;	
+		margin: auto;
+		background: url(../../assets/images/intro/bg_main_filter.png) no-repeat 50% 50% / 100%;
+		z-index: 3;
+		button {
+			position: absolute;
+			right: 0;
+			top: calc(120% + 19rem);
+			left: 0;
+			width: 4rem;
+			height: 4rem;
+			margin: auto;
+			font-weight: 500;
+			color: #000;
+			background-color: #f6f6f6;
+			border-radius: 100%;
+			text-align: center;
+			text-indent: -9999rem;
+			transition: .5s;
+			&::before {
+				content: '';
+				position: absolute;
+				top: 0;
+				right: 0;
+				bottom: .5rem;
+				left: 0;
+				width: 1rem;
+				height: 1rem;
+				margin: auto;
+				border-right: .1rem solid #000;
+				border-bottom: .1rem solid #000;
+				transform: rotate(45deg);
+			}
+		}
+		p {
+			position: absolute;
+			top: calc(120% + 25rem);
+			right: 0;
+			left: 0;
+			width: 100%;
+			margin: auto;
+			font-weight: 500;
+			font-size: 1.8rem;
+			color: #000;
+			text-align: center;
+			transition: .5s;
+			strong {
+				font-weight: 700;
+			}
+		}
+		&.active {
+			button {
+				top: calc(50% + 19rem);
+			}
+			p {
+				top: calc(50% + 25rem);
+			}	
+		}
+	}
+	
+	.intro-content {
+		position: absolute;
+		top: 0;
+		right: 0;
+		left: 0;
+		width: 100%;
+		min-height: 100vh;	
+		margin: auto;
+		background-color: #000;
+		overflow: hidden;
+		z-index: 2;
+
+		span {
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			margin: auto;
+			&#ytaMotionItem1 {
+				background: url(../../assets/images/intro/bg_main_item_01.png) no-repeat 50% 50% / 100%;
+				animation: motionBounce 5s infinite;
+				z-index: 2;
+			}
+	
+			&#ytaMotionItem2 {
+				background: url(../../assets/images/intro/bg_main_item_02.png) no-repeat 50% 50% / 100%;
+				animation: motionBounce 5s 1s infinite;
+			}
+
+			&#bgStarS {
+				background: url(../../assets/images/intro/bg_main_star_s.png) repeat 50% 50% / 100%;
+				animation: motionBounce 5s 2s infinite;
+
+			}
+			&#bgStarM {
+				background: url(../../assets/images/intro/bg_main_star_m.png) repeat 50% 50% / 100%;
+				animation: motionBounce 5s 3s infinite;
+
+			}
+			&#bgStarL {
+				background: url(../../assets/images/intro/bg_main_star_l.png) repeat 50% 50% / 100%;
+				animation: motionBounce 5s 2.5s infinite;
+
+			}
+		}
+	}
+
+	&.absolute-mode {
+		.intro-bg {
+			position: absolute;
+			top: auto;
+			right: 0;
+			bottom: 0;
+			left: 0;
+		}
+		.intro-content {
+			position: absolute;
+			top: auto;
+			right: 0;
+			bottom: 0;
+			left: 0;
+		}
+	}
+}
+
+.fixed {
+	.yta-intro-col {
+		&.fixed-mode {
+			.intro-bg {
+				position: fixed;
+				top: 0;
+				right: 0;
+				left: 0;
+			}
+			.intro-content {
+				position: fixed;
+				top: 0;
+				right: 0;
+				left: 0;
+			}
+		}
+	}
+}
+
+@keyframes motionBounce {
+		0% {background-position-y: calc(50%);}
+		50% {background-position-y: calc(50% - 2rem);}
+		100% {background-position-y: calc(50%);}
+	}
+
+.test-col {
+	width: 100%;
+	height: 100rem;
+	&.bg-1 {
+		background-color: #eee;	
+	}
+	&.bg-2 {
+		background-color: #333;
+	}
+	&.bg-3 {
+		background-color: #666;
+	}
+	&.bg-4 {
+		background-color: blue;
+	}
+	&.bg-5 {
+		background-color: #f4f4f4;
+	}
+	.inner-col {
+		background-color: transparent;
+	}
+}

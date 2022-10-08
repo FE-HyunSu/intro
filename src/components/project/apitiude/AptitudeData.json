@@ -1,0 +1,98 @@
+[
+  {
+    "imgCategory": "category-travel",
+    "question" : "나의 여행 스타일은?",
+    "option" : [{
+        "value" : "1",
+        "content" : "아는게 힘! 꼼꼼한 계획 필수"
+      },
+      {
+        "value" : "2",
+        "content" : "그날의 분위기에 나를 맡긴다~"
+      }]
+  },
+  {
+    "imgCategory": "category-music",
+    "question" : "이 팝송 너무 내 스타일이야!",
+    "option" : [{
+      "value" : "1",
+      "content" : "무슨 내용이지? 가사가 궁금해~"
+    },
+    {
+      "value" : "2",
+      "content" : "그냥 노래에만 집중하고 싶어"
+    }]
+  },
+  {
+    "imgCategory": "category-instinct",
+    "question" : "다음중 내가 본능적으로\n눌러보는 것은?",
+    "option" : [{
+      "value" : "1",
+      "content" : "시급해보이는 업무 메시지"
+    },
+    {
+      "value" : "2",
+      "content" : "매도할 타이밍을 알리는 주식어플"
+    }]
+  },
+  {
+    "imgCategory": "category-health",
+    "question" : "요즘 따라 너무 피곤한것 같다.\n이때 드는 생각은?",
+    "option" : [{
+      "value" : "1",
+      "content" : "이젠 정말! 진짜 운동 해야겠다."
+    },
+    {
+      "value" : "2",
+      "content" : "무조건 쉬어야 낫는다!"
+    }]
+  },
+  {
+    "imgCategory": "category-information",
+    "question" : "내가 찾던 정보가 죄다\n영어로만 쓰여있다.",
+    "option" : [{
+      "value" : "1",
+      "content" : "요~ 이거 유용할것 같은데?"
+    },
+    {
+      "value" : "2",
+      "content" : "아.. 갑자기 현기증이"
+    }]
+  },
+  {
+    "imgCategory": "category-notebook",
+    "question" : "새로운 노트북이 필요하다.\n나의 선택은?",
+    "option" : [{
+      "value" : "1",
+      "content" : "검색부터 시작한다"
+    },
+    {
+      "value" : "2",
+      "content" : "디자인 이쁜게 최고"
+    }]
+  },
+  {
+    "imgCategory": "category-title",
+    "question" : "내가 가장 듣고싶은\n타이틀은?",
+    "option" : [{
+      "value" : "1",
+      "content" : "일잘러"
+    },
+    {
+      "value" : "2",
+      "content" : "완전 동안"
+    }]
+  },
+  {
+    "imgCategory": "category-food",
+    "question" : "맛있는 저녁을 먹고\n배부른 나는?",
+    "option" : [{
+      "value" : "1",
+      "content" : "소화시키자!"
+    },
+    {
+      "value" : "2",
+      "content" : "아 배불렁~ 이대로 누우면... 얼마나 좋게요"
+    }]
+  }
+]

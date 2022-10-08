@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <link rel="shortcut icon" href="image/favicon.ico" />
+  <link rel="apple-touch-icon-precomposed" href="image/ico_logo_192x192.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="theme-color" content="#000000" />
+  <meta name="KIMHYUNSU" content="FrontEndDeveloper" />
+  <title>KIMHYUNSU</title>
+  <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="ticketing.css"/>
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"/>
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+</head>
+<body>
+  <div class="landing" style="max-width: 720px; margin: 0 auto">
+    <div class="inner">
+      <div class="submain-col">
+        <div class="inner-col">
+          <div class="main-screen-box" id="GUM">
+            <div class="main-motion-box active">
+              <span class="motion-01">매일 선착순 100명</span>
+              <span class="motion-02">괌</span>
+              <span class="motion-03 img-before"></span>
+              <span class="motion-03">0원</span>
+              <span class="motion-04">2021.07 첫째주에만 출발 가능한 티켓</span>
+              <em class="motion-plane">plane</em>
+              <span class="motion-plane-guide"></span>
+            </div>
+            <div class="tab-screen-box"></div>
+            </div>
+          <div class="main-menu-box swiper-container">
+            <ul class="swiper-wrapper">
+              <li class="swiper-slide">
+                <a href="javascript:void(0);" class="GUM" style="background-image:url(image/img_destination_GUM.png);"><strong class="">괌</strong><span></span></a>
+              </li>
+              <li class="swiper-slide">
+                <a href="javascript:void(0);" class="CEB" style="background-image:url(image/img_destination_CEB.png);"><strong class="">세부</strong><span></span></a>
+              </li>
+              <li class="swiper-slide">
+                <a href="javascript:void(0);" class="SYD" style="background-image:url(image/img_destination_SYD.png);"><strong class="">시드니</strong><span></span></a>
+              </li>
+              <li class="swiper-slide">
+                <a href="javascript:void(0);" class="BKI" style="background-image:url(image/img_destination_BKI.png);"><strong class="small-font">코타키나발루</strong><span></span></a>
+              </li>
+              <li class="swiper-slide">
+                <a href="javascript:void(0);" class="PRG" style="background-image:url(image/img_destination_PRG.png);"><strong class="">프라하</strong><span></span></a>
+              </li>
+              <li class="swiper-slide">
+                <a href="javascript:void(0);" class="DPS" style="background-image:url(image/img_destination_DPS.png);"><strong class="">발리</strong><span></span></a>
+              </li>
+              <li class="swiper-slide">
+                <a href="javascript:void(0);" class="DAD" style="background-image:url(image/img_destination_DAD.png);"><strong class="">다낭</strong><span></span></a>
+              </li>
+              <li class="swiper-slide">
+                <a href="javascript:void(0);" class="YVR" style="background-image:url(image/img_destination_YVR.png);"><strong class="">벤쿠버</strong><span></span></a>
+              </li>
+              <li class="swiper-slide">
+                <a href="javascript:void(0);" class="HNL" style="background-image:url(image/img_destination_HNL.png);"><strong class="">하와이</strong><span></span></a>
+              </li>
+              <li class="swiper-slide">
+                <a href="javascript:void(0);" class="LGA" style="background-image:url(image/img_destination_LGA.png);"><strong class="">뉴욕</strong><span></span></a>
+              </li>
+              <li class="swiper-slide">
+                <a href="javascript:void(0);" class="DMK" style="background-image:url(image/img_destination_DMK.png);"><strong class="">방콕</strong><span></span></a>
+              </li>
+              <li class="swiper-slide">
+                <a href="javascript:void(0);" class="SPN" style="background-image:url(image/img_destination_SPN.png);"><strong class="">사이판</strong><span></span></a>
+              </li>
+              <li class="swiper-slide">
+                <a href="javascript:void(0);" class="SIN" style="background-image:url(image/img_destination_SIN.png);"><strong class="">싱가포르</strong><span></span></a>
+              </li>
+              <li class="swiper-slide">
+                <a href="javascript:void(0);" class="HKG" style="background-image:url(image/img_destination_HKG.png);"><strong class="">홍콩</strong><span></span></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<script>
+  $(document).ready(function () {
+    var destinationList = $(".main-menu-box").find("li");
+    destinationList.eq(0).addClass("active");
+    $(".main-menu-box").find("a").on("click", function () {
+      var destinationId = $(this).attr("class");
+      var destinationName = $(this).find("strong").text();
+
+      $(".main-screen-box").attr("id", destinationId);
+      $(".main-screen-box").find(".motion-02").text(destinationName);
+      setTimeout(function () {
+        $(".main-motion-box").addClass("active");
+      }, 10);
+      $(".main-motion-box").removeClass("active");
+      destinationList.removeClass("active");
+      $(this).closest("li").addClass("active");
+    });
+    var subMainSwiper = new Swiper(".swiper-container", {
+      slidesPerView: 4,
+      spaceBetween: 10,
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+      autoplay: {
+        delay: 4000,
+        disableOnInteraction: false,
+      },
+    });
+  });
+</script>
+</body>
+</html>

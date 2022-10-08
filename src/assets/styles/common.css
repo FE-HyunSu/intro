@@ -1,0 +1,26 @@
+/* header */
+.scroll-top header{top:-50px; opacity:0;}
+
+/* keyframe */
+@keyframes text-move{
+  0%{opacity:1;}
+  100%{opacity:.2;}
+}
+@keyframes logo-effect{
+  0%{top:-1.8em; width:1em; height:1em; opacity:0;}
+  80%{top:-2.3em; width:2em; height:2em; opacity:1;}
+  100%{top:-2.5em; width:2.2em; height:2.2em; opacity:0;}
+}
+@keyframes about-effect{
+  0%{border-radius:100%; background-color:rgba(213,0,0,.5); transform:rotate(0);}
+  50%{border-radius:50%; background-color:rgba(106,0,0,.1); transform:rotate(180deg);}
+  100%{border-radius:0; background-color:rgba(0,0,0,.1); transform:rotate(360deg);}
+}
+@keyframes rotate-effect{
+  0%{transform:rotate(0deg); opacity:0;}
+  100%{transform:rotate(135deg); opacity:1;}
+}
+
+
+
+

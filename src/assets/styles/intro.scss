@@ -1,0 +1,278 @@
+.intro-col {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: 1s;
+  opacity: 1;
+
+  &.motion-last {
+    opacity: 0;
+  }
+
+  & > span {
+    &::before {
+      content: '';
+      position: absolute;
+      width: 3rem;
+      height: 1rem;
+      border-radius: 1rem;
+      transform: rotate(30deg);
+      transition: all ease 1.5s;
+    }
+    &::after {
+      content: '';
+      position: absolute;
+      width: 1rem;
+      height: 3rem;
+      border-radius: 1rem;
+      transform: rotate(30deg);
+      transition: all ease 1.5s;
+    }
+  }
+  .deco-top-left {
+    &::before {
+      top: 50%;
+      left: 50%;
+      animation: introMotionBounceTop 1s infinite alternate;
+    }
+    &::after {
+      top: 50%;
+      left: 50%;
+      animation: introMotionBounceTop 1s infinite alternate;
+    }
+  }
+  .deco-top-right {
+    &::before {
+      top: 50%;
+      right: 50%;
+      animation: introMotionBounceTop 1s infinite alternate;
+    }
+    &::after {
+      top: 50%;
+      right: 50%;
+      animation: introMotionBounceTop 1s infinite alternate;
+    }
+  }
+  .deco-bottom-left {
+    &::before {
+      bottom: 50%;
+      left: 50%;
+      animation: introMotionBounceBottom 1s infinite alternate;
+    }
+    &::after {
+      bottom: 50%;
+      left: 50%;
+      animation: introMotionBounceBottom 1s infinite alternate;
+    }
+  }
+  .deco-bottom-right {
+    &::before {
+      right: 50%;
+      bottom: 50%;
+      animation: introMotionBounceBottom 1s infinite alternate;
+    }
+    &::after {
+      right: 50%;
+      bottom: 50%;
+      animation: introMotionBounceBottom 1s infinite alternate;
+    }
+  }
+
+  &.active {
+    & > span {
+      &::before {
+        width: 3rem;
+        height: 0.6rem;
+        transform: rotate(0deg);
+      }
+      &::after {
+        width: 0.6rem;
+        height: 3rem;
+        transform: rotate(0deg);
+      }
+    }
+    .deco-top-left {
+      &::before {
+        top: 2rem;
+        left: 2rem;
+      }
+      &::after {
+        top: 2rem;
+        left: 2rem;
+      }
+    }
+    .deco-top-right {
+      &::before {
+        top: 2rem;
+        right: 2rem;
+      }
+      &::after {
+        top: 2rem;
+        right: 2rem;
+      }
+    }
+    .deco-bottom-left {
+      &::before {
+        bottom: 2rem;
+        left: 2rem;
+      }
+      &::after {
+        bottom: 2rem;
+        left: 2rem;
+      }
+    }
+    .deco-bottom-right {
+      &::before {
+        right: 2rem;
+        bottom: 2rem;
+      }
+      &::after {
+        right: 2rem;
+        bottom: 2rem;
+      }
+    }
+  }
+
+  @keyframes introMotionBounceTop {
+    0% {
+      margin-top: 0;
+      background-color: rgba($color: #000, $alpha: 0.1);
+    }
+    100% {
+      margin-top: 0.5rem;
+      background-color: rgba($color: #000, $alpha: 0.2);
+    }
+  }
+  @keyframes introMotionBounceBottom {
+    0% {
+      margin-bottom: 1rem;
+      background-color: rgba($color: #000, $alpha: 0.1);
+    }
+    100% {
+      margin-bottom: 0.5rem;
+      background-color: rgba($color: #000, $alpha: 0.2);
+    }
+  }
+
+  .who-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60rem;
+    padding: 2rem 0;
+    p {
+      margin-top: 2rem;
+      font-weight: 500;
+      font-size: 2.8rem;
+      color: #777;
+      text-align: center;
+      opacity: 0;
+      animation: motionViewUp 0.5s 0.3s forwards;
+
+      & + p + p {
+        margin-bottom: 2.5rem;
+      }
+    }
+    input {
+      width: 100%;
+      margin-top: 3rem;
+      margin-bottom: 1rem;
+      padding: 2rem;
+      text-align: center;
+      font-weight: 500;
+      font-size: 2.4rem;
+      color: #1a1a1a;
+      background-color: #fff;
+      border: 0.1rem solid #ccc;
+      border-radius: 0.5rem;
+      box-sizing: border-box;
+      opacity: 0;
+      animation: motionViewUp 0.5s 0.6s forwards;
+    }
+    button {
+      display: block;
+      width: 100%;
+      margin: 2rem auto 1rem;
+      padding: 2rem;
+      font-weight: 500;
+      font-size: 2.4rem;
+      color: #999;
+      background-color: #ddd;
+      border-radius: 0.5rem;
+      opacity: 0;
+      animation: motionViewUp 0.5s 0.9s forwards;
+      &.active {
+        color: #000;
+        background-color: #fde25c;
+      }
+    }
+  }
+}
+
+@keyframes face-effect {
+  0% {
+    top: 0;
+  }
+  20% {
+    top: 0.2em;
+  }
+  40% {
+    top: 0;
+  }
+  100% {
+    top: 0;
+  }
+}
+
+@keyframes eye-effect {
+  0% {
+    transform: scale(1, 1);
+    opacity: 1;
+  }
+  10% {
+    transform: scale(1, 0.2);
+    opacity: 0.3;
+  }
+  20% {
+    transform: scale(1, 1);
+    opacity: 1;
+  }
+  30% {
+    transform: scale(1, 0.2);
+    opacity: 0.3;
+  }
+  40% {
+    transform: scale(1, 1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1, 1);
+    opacity: 1;
+  }
+}
+
+@keyframes mouth-effect {
+  0% {
+    width: 1.5em;
+  }
+  25% {
+    width: 2em;
+  }
+  50% {
+    width: 1.5em;
+  }
+  100% {
+    width: 1.5em;
+  }
+}
+
+@keyframes motionViewUp {
+  0% {
+    margin-top: 2rem;
+    opacity: 0;
+  }
+  100% {
+    margin-top: 0;
+    opacity: 1;
+  }
+}

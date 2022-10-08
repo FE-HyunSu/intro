@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="image/favicon.ico" />
+    <title>HSBOT</title>
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@2.0.0/dist/tf.min.js"
+    ></script>
+    <link rel="stylesheet" href="hsbot.css" />
+  </head>
+  <body>
+    <div id="root">
+      <!-- header -->
+      <header>
+        <h1><a href="/khs/project/hsbot/index.html">HSBOT</a></h1>
+      </header>
+      <!-- // header -->
+      <!-- step-tensor -->
+      <section class="step-tensor">
+        <div class="icon-khs">
+          <dl>
+            <dt>
+              <span class="icon-hear"></span>
+              <span class="icon-eye"></span>
+              <span class="icon-mouth"></span>
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </div>
+        <div class="info-box">
+          <p id="infoText">
+            안녕하세요. 저는 HSBOT 입니다.<br /><em>테스트 데이터</em>와
+            <em>예상 결과를 입력</em>해서, <br />저를 학습시켜 주세요.
+          </p>
+          <ul>
+            <li>
+              <input type="number" placeholder="입력값" name="data-input" /><span></span>
+              <input type="number" placeholder="출력값" name="data-output" />
+            </li>
+            <li>
+              <input type="number" placeholder="입력값" name="data-input" /><span></span>
+              <input type="number" placeholder="출력값" name="data-output" />
+            </li>
+            <li>
+              <input type="number" placeholder="입력값" name="data-input" /><span></span>
+              <input type="number" placeholder="출력값" name="data-output" />
+            </li>
+          </ul>
+        </div>
+        <div class="result-box" id="resultBox">
+          <button type="button" onclick="studyStart();">학습시작</button>
+          <div class="info-box">
+            <p><em>정수만 입력해주세요.</em></p>
+            <p>
+              <em>규칙성이 있어야 합니다. 입,출력의 규칙이 없다면, 학습을 중단합니다.</em>
+            </p>
+          </div>
+        </div>
+      </section>
+      <!-- // step-tensor -->
+      <!-- footer -->
+      <footer>
+        <p>
+          Tensorflowjs 개인 스터디 페이지 입니다. &nbsp;
+          <span>Copyright &copy; KIMHYUNSU, All rights reserved.</span>
+        </p>
+      </footer>
+      <!-- // footer-->
+      <!-- stepLoading -->
+      <article class="step-loading" id="stepLoading">
+        <div class="icon-khs">
+          <dl>
+            <dt>
+              <span class="icon-hear"></span>
+              <span class="icon-eye"></span>
+              <span class="icon-mouth"></span>
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+          <strong><em id="studyCount"></em> 학습 중</strong>
+        </div>
+      </article>
+      <!-- // stepLoading -->
+    </div>
+    <script>
+      console.log(tf);
+      // 1. 모델의 모양 만들기 (재사용을 위해 전역으로 지정)
+      // 모델에 입력될 값이 몇개인지 적용.
+      // input 함수에 인자로 shape이라는 프로퍼티 객체에 입력된 값이 몇개인가? 입력함.
+      const X = tf.input({ shape: [1] }); // 이번 모델에선 1개로 유지.
+      const Y = tf.layers.dense({ units: 1 }).apply(X);
+      const model = tf.model({ inputs: X, outputs: Y }); // 모델 셋팅.
+
+      // 사용자가 입력한 데이터를 기반으로 학습하는 함수.
+      function studyStart() {
+        const dataInput = document.getElementsByName('data-input');
+        const dataOutput = document.getElementsByName('data-output');
+        const rejectMsg = '모든 항목을 입력해 주세요.';
+
+        for (let i = 0; dataInput.length > i; i++) {
+          if (dataInput[i].value.length + dataOutput[i].value.length <= 0) {
+            alert(rejectMsg);
+            return false;
+          }
+        }
+
+        document.getElementById('stepLoading').classList.add('active');
+
+        // 2. 규칙성 있는 샘플 데이터 입력. (패턴을 학습할 수 있는)
+        let inputData = []; // 입력 샘플 데이터 (독립변수)
+        let outputData = []; // 출력 데이터 (종속변수)
+
+        // 입력된 값을 변수배열에 Number 타입으로 담는다.
+        dataInput.forEach((item) => {
+          inputData.push(Number(item.value));
+        });
+        dataOutput.forEach((item) => {
+          outputData.push(Number(item.value));
+        });
+
+        // tensor 형태로 변경.
+        let inputTensor = tf.tensor(inputData); // 원인이 되는 값, tensor로 만들고,
+        let outputTensor = tf.tensor(outputData); // 결과가 되는 값, tensor로 만들고,
+
+        // optimizer 효율적으로 모델을 만드는 방법을 선택해서 지정.
+        // loss 는 모델이 잘 만들어졌는가? 측정 방법을 지정.
+        let compileParam = { optimizer: tf.train.adam(), loss: tf.losses.meanSquaredError };
+        model.compile(compileParam);
+
+        // 3. 데이터로 모델을 학습. (이것을 핏한다라고 함.)
+        let studyCount = 2000; // 총 2000번의 학습을 함. 2000번도 정확도가 좋지 않음. (고민 필요)
+        let fitParam = {
+          epochs: studyCount,
+          callbacks: {
+            // 콜백으로 콘솔 출력.
+            onEpochEnd: (epoch, logs) => {
+              document.getElementById('studyCount').innerHTML = epoch + '/' + studyCount;
+              console.log('epoch', epoch, logs, 'RMSE=>', Math.sqrt(logs.loss)); // RMSE 값이 0에 가까울수록, 정확도가 높다.
+            },
+          },
+        };
+
+        // fit을 통해 학습이 끝났을때 then을 통해 해야할 일을 정의 한다.
+        let studyAction = model.fit(inputTensor, outputTensor, fitParam).then((result) => {
+          // 4. 모델을 이용.
+          // 쓸만한 결과인지 검수.
+          let realOutputTensor = model.predict(inputTensor); // predict 메서드로 예측!
+          inputTensor.print(); // 만들어진 tensor는 .print를 할 수 있다. 쓸만한 모델인지 콘솔을 보고 체크한다.
+          outputTensor.print();
+          realOutputTensor.print(); // 결과 출력.
+          studyComplete();
+        });
+      }
+
+      // 학습이 끝난 후 실행되는 함수.
+      function studyComplete() {
+        const dataInput = document.getElementsByName('data-input');
+        const dataOutput = document.getElementsByName('data-output');
+        const resultBox = document.getElementById('resultBox');
+        dataInput.forEach((item) => {
+          item.disabled = true;
+        });
+        dataOutput.forEach((item) => {
+          item.disabled = true;
+        });
+        resultBox.classList.add('active');
+        resultBox.innerHTML =
+          '\n' +
+          ' <p><strong>이제 값을 입력하고, 결과를 받아보세요.</strong></p>\n' +
+          '  <ul>\n' +
+          '    <li>\n' +
+          '      <input type="number" placeholder="입력값" id="resultDataInput" /><span></span><strong id="resultDataOutput"></strong>\n' +
+          '    </li>\n' +
+          '  </ul>\n' +
+          '  <button type="button" onclick="modelAction(document.getElementById(\'resultDataInput\').value);">결과값 계산</button>';
+
+        document.getElementById('infoText').innerHTML =
+          '<p><strong>학습이 완료되었습니다.</strong><br/>필요한 값을 입력하고, 원하는 결과 데이터를 받아보세요.</p>';
+        document.getElementById('stepLoading').classList.remove('active');
+      }
+
+      // 테스트 할 값을 입력합니다.
+      function modelAction(inputNum) {
+        const rejectMsg = '입력값을 기입해 주세요.';
+        if (document.getElementById('resultDataInput').value.length <= 0) {
+          alert(rejectMsg);
+          return false;
+        }
+        let resultItem = model.predict(tf.tensor([Number(inputNum)]));
+        const resultDataOutput = document.getElementById('resultDataOutput');
+        resultItem.array().then((array) => (resultDataOutput.innerHTML = Math.round(array[0])));
+      }
+    </script>
+  </body>
+</html>

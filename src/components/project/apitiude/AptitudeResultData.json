@@ -1,0 +1,50 @@
+[
+  {
+    "resultType" : "result-all",
+    "resultTitle" : "당신이 그 유명한 팔방미인?",
+    "courseName" : "그냥 다 들어봐요",
+    "resultContent" : "그 어떤 것도 부족함 없이<br/>모두 다 잘하고 싶은 <em class='user-name'></em>님!<br/>야나두에 입학하고 영어, 커리어, 머니, 야핏의<br/>기본 강의들을 모두 수강하시고<br/>이 시대 최고의 다능인이 되어보세요.",
+    "linkText" : "돌아가기",
+    "linkURL" : "/Aptitude"
+  },
+  {
+    "resultType" : "result-find",
+    "resultTitle" : "뚜렷한 관심사가 없으시군요",
+    "courseName" : "지금부터 찾아봐요",
+    "resultContent" : "뭐라도 도전해보고 싶지만 <br/>지금 딱히 하고 싶은 게 없는 <em class='user-name'></em>님!<br/>야나두에 입학하고 영어, 커리어, 머니, 야핏의<br/>기본강의들을 모두 경험해보세요.<br/>분명 더 알고 싶은 관심사를 쉽게 찾게 될 거예요.",
+    "linkText" : "돌아가기",
+    "linkURL" : "/Aptitude"
+  },
+  {
+    "resultType" : "result-career",
+    "resultTitle" : "뒤쳐지고 싶지 않은 트렌드세터",
+    "courseName" : "커리어 코스",
+    "resultContent" : "자신의 커리어 성장을 위해 <br/>시대의 흐름에 빠르게 탑승하고픈 <em class='user-name'></em>님!<br/>셀프 커리어 코칭, 브랜딩, <br/>일잘러가 되기 위한 강의들까지~<br/>완벽히 구성된 커리어 강의들과 함께<br/>넥스트 레벨로 도약해보세요.",
+    "linkText" : "돌아가기",
+    "linkURL" : "/Aptitude"
+  },
+  {
+    "resultType" : "result-english",
+    "resultTitle" : "세상은 넓고 기회는 넘친다",
+    "courseName" : "영어 코스",
+    "resultContent" : "영어로 인해 삶이 더 좋게 바뀔거라<br/>확신하는 <em class='user-name'></em>님!<br/>야나두만의 탄탄한 기초과정부터 <br/>해외 문화의 다름을 이해하는 컬쳐강의까지~<br/>결과의 차이를 만드는 10분으로<br/>영어 실력을 빠르게 키워보세요.",
+    "linkText" : "돌아가기",
+    "linkURL" : "/Aptitude"
+  },
+  {
+    "resultType" : "result-money",
+    "resultTitle" : "경제적 자유를 꿈꿔본다",
+    "courseName" : "머니 코스",
+    "resultContent" : "작고 소중한 내 월급을<br/>평생의 반려자로 두기 고민이 많은 <em class='user-name'></em>님!<br/>재테크를 위한 기본 경제지식부터<br/>부업, 주식투자, 부동산 등의 강의들로<br/>구성된 머니 강의들과 함께 <br/>나만의 사이드잡을 만들어보세요",
+    "linkText" : "돌아가기",
+    "linkURL" : "/Aptitude"
+  },
+  {
+    "resultType" : "result-yafit",
+    "resultTitle" : "건강한 몸은 내 최고의 자산",
+    "courseName" : "야핏",
+    "resultContent" : "나를 사랑하는 가장 최고의 방법은<br/>'건강'이라고 자부하는  <em class='user-name'></em>님!<br/>이 시국 최고의 운동인 [야핏 사이클]과 함께 <br/>체지방량은 줄이고 근육량은 늘려보세요.<br/>헬스장에 기부했던 지난날은 이제 Bye~",
+    "linkText" : "돌아가기",
+    "linkURL" : "/Aptitude"
+  }
+]
