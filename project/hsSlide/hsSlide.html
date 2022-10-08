@@ -1,0 +1,119 @@
+<html>
+  <head>
+    <title>hsSlide</title>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, target-densitydpi=medium-dpi"
+    />
+    <link rel="apple-touch-icon-precomposed" href="image/ico_logo_192x192.png" />
+    <link rel="stylesheet" href="hsSlide.css" />
+  </head>
+  <body>
+    <div id="root">
+      <section class="hsslide-col">
+        <div class="inner">
+          <h1>hsSlide</h1>
+          <p>javascript로 slide 효과 구현</p>
+          <div class="sample-slide">
+            <ul class="slide-box">
+              <li class="slide-item">
+                <img src="images/img_sample1.jpg" alt="" />
+                <p>1</p>
+              </li>
+              <li class="slide-item">
+                <img src="images/img_sample2.jpg" alt="" />
+                <p>2</p>
+              </li>
+              <li class="slide-item">
+                <img src="images/img_sample3.jpg" alt="" />
+                <p>3</p>
+              </li>
+              <li class="slide-item">
+                <img src="images/img_sample4.jpg" alt="" />
+                <p>4</p>
+              </li>
+              <li class="slide-item">
+                <img src="images/img_sample5.jpg" alt="" />
+                <p>5</p>
+              </li>
+              <li class="slide-item">
+                <img src="images/img_sample6.jpg" alt="" />
+                <p>6</p>
+              </li>
+            </ul>
+          </div>
+          <script>
+            let ttA = [1, 2, 3, 4, 5];
+            function testA(arr) {
+              let resultArr = [...arr].reverse();
+              return resultArr;
+            }
+            testA(ttA);
+
+            function hsSlide(tagName) {
+              let hsInterval;
+              let hsOption = {
+                viewSlide: 1, // 보여지는 슬라이드 갯수
+                speed: 500, // 슬라이드 속도
+                delay: 2000, // 슬라이드 딜레이
+                autoPlay: false, // 자동 슬라이드 여부
+                loop: true, // 무한반복 여부
+              };
+              let activeNumber = 0;
+              const slideBox = document.querySelector(tagName).querySelector('.slide-box');
+              const slideItem = document.querySelector(tagName).querySelectorAll('.slide-item');
+              const boxWidth = slideBox.offsetWidth;
+
+              console.log(slideBox);
+
+              document.querySelector(tagName).style.overflow = 'hidden';
+              slideBox.style.transition = hsOption.speed / 1000 + 's';
+              slideBox.style.width = '100%';
+
+              hsSlideMove(tagName, hsOption.viewSlide, 0);
+
+              // 자동 슬라이드 설정
+              clearInterval(hsInterval);
+              if (hsOption.autoPlay) {
+                // activeNumber 를 1씩 더한다. 마지막 슬라이드 값이라면 0으로 초기화.
+                hsInterval = setInterval(() => {
+                  activeNumber > slideItem.length - 2 ? (activeNumber = 0) : activeNumber++;
+                  hsSlideMove(tagName, hsOption.viewSlide, activeNumber);
+                }, hsOption.delay);
+              }
+            }
+
+            function hsSlideMove(tagName, viewSlide, slideNumber) {
+              const slideBox = document.querySelector(tagName).querySelector('.slide-box');
+              const slideItem = document.querySelector(tagName).querySelectorAll('.slide-item');
+              const boxWidth = slideBox.offsetWidth;
+              // 슬라이드 영역 높이값 설정.
+              document.querySelector(tagName).style.height =
+                slideItem[slideNumber].offsetHeight + 'px';
+              // 슬라이드 영역 가로값 설정.
+              slideItem.forEach((item, idx) => {
+                item.style.left = (idx * boxWidth) / viewSlide + 'px';
+              });
+              // 모든 active-slide 클래스를 해제. 현재 슬라이드에만 active.
+              slideItem.forEach((item, idx) => {
+                item.classList.remove('active-slide');
+              });
+              slideItem[slideNumber].classList.add('active-slide');
+              // slideNumber 번째 슬라이드 위치로 이동.
+              slideBox.style.marginLeft = slideNumber * boxWidth * -1 + 'px';
+            }
+
+            window.addEventListener('load', function () {
+              hsSlide('.sample-slide');
+
+              setInterval(() => {
+                hsSlideMove('.sample-slide', 1, Math.floor(4 * Math.random()) + 1);
+              }, 2000);
+            });
+          </script>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="image/favicon.ico" />
+    <title>chart</title>
+    <script type="text/javascript" src="d3.v5.js"></script>
+    <script type="text/javascript" src="hsd3.js"></script>
+    <link rel="stylesheet" href="chart.css" />
+  </head>
+  <body>
+    <div id="root">
+      <!-- header -->
+      <header>
+        <h1><a href="/khs/project/chart/chart.html">HSCHART</a></h1>
+      </header>
+      <!-- // header -->
+      <!-- chart body -->
+      <section>
+        <h1 id="chartName">bar chart</h1>
+        <div class="setting-box">
+          <div class="setting-list">
+            <h2>차트설정</h2>
+            <dl>
+              <dt>타입</dt>
+              <dd>
+                <label><input type="radio" value="bar" name="chartType" checked />막대형</label>
+              </dd>
+            </dl>
+            <dl>
+              <dt>차트길이</dt>
+              <dd><input type="number" placeholder="기본값 600" id="barChartWidth" /></dd>
+            </dl>
+            <dl>
+              <dt>차트높이</dt>
+              <dd><input type="number" placeholder="기본값 400" id="barChartHeight" /></dd>
+            </dl>
+            <dl>
+              <dt>단위설정</dt>
+              <dd>
+                <label
+                  ><input
+                    type="radio"
+                    name="barChartUnit"
+                    value="1"
+                    onchange="(this.value) ? document.getElementById('barChartUnitText').disabled = false : '';"
+                  />설정</label
+                >
+                <input type="text" placeholder="ex) '개'" id="barChartUnitText" value="" />
+                <label
+                  ><input
+                    type="radio"
+                    name="barChartUnit"
+                    value="0"
+                    onchange="(this.value) ? document.getElementById('barChartUnitText').disabled = true : '';"
+                  />설정안함</label
+                >
+              </dd>
+            </dl>
+            <dl>
+              <dt>차트 막대에 radius 값</dt>
+              <dd><input type="number" placeholder="기본값 5" id="chartBarRadius" /></dd>
+            </dl>
+          </div>
+          <div class="setting-list" id="chartDataPlus">
+            <h2>
+              차트 데이터 입력
+              <button type="button" class="btn-data-add" onclick="chartDataAdd();">추가</button>
+            </h2>
+            <dl>
+              <dt>1</dt>
+              <dd>
+                <input type="text" name="chartDataName" placeholder="이름" />
+                <input type="number" name="chartDataNumber" placeholder="숫자" />
+                <input type="text" name="chartDataColor" placeholder="차트색상" />
+              </dd>
+            </dl>
+          </div>
+        </div>
+        <button type="button" class="btn-chart-set" onclick="barChartSet();">차트그리기</button>
+        <button type="button" class="btn-chart-set" onclick="autoSet();">샘플그리기</button>
+        <div class="chart-area">
+          <div class="chart-box" id="svgChartBar"></div>
+        </div>
+      </section>
+      <section>
+        <h1 id="chartName">pie chart</h1>
+        <button type="button" class="btn-chart-set btn-orange" onclick="chartPie('#svgChartPie');">
+          파이차트그리기
+        </button>
+        <div class="chart-area">
+          <div class="chart-box" id="svgChartPie"></div>
+        </div>
+      </section>
+      <!-- // chart body -->
+      <!-- footer -->
+      <footer>
+        <p>
+          개인 스터디 페이지 입니다. &nbsp;
+          <span>Copyright &copy; KIMHYUNSU, All rights reserved.</span>
+        </p>
+      </footer>
+      <!-- // footer-->
+      <script>
+        // chartData 의 기본 배열 생성, dataLength 값 1로 시작.
+        let dataLength = 1;
+        let chartData = {
+          meta: { boxWidth: 600, boxHeight: 400, detailView: true, unit: '개', radius: 5 },
+          data: [],
+        };
+
+        // 막대차트를 그려주는 함수. 그래프의 background 색상이 없다면, randomColor 중 한개의 색상으로 표기됨.
+        function barChartSet() {
+          // chart bar random color
+          const randomColor = ['#5487b1', '#63a1af', '#7ab8aa', '#93caa8', '#add7a8', '#c6e3a7'];
+          const barChartWidth = document.getElementById('barChartWidth').value;
+          const barChartHeight = document.getElementById('barChartHeight').value;
+          let barChartUnit = true;
+          document.getElementsByName('barChartUnit').forEach((item) => {
+            if (item.checked) barChartUnit = item.value;
+          });
+
+          barChartWidth !== '' ? (chartData.meta.boxWidth = Number(barChartWidth)) : 600;
+          barChartHeight !== '' ? (chartData.meta.boxHeight = Number(barChartHeight)) : 400;
+          chartData.meta.detailView = Number(barChartUnit);
+          chartData.meta.unit = document.getElementById('barChartUnitText').value;
+          chartData.meta.radius = Number(document.getElementById('chartBarRadius').value);
+          // 기존 data 삭제
+          delete chartData.data;
+          chartData.data = [];
+          document.getElementsByName('chartDataName').forEach((item, idx) => {
+            chartData.data.push({
+              name: document.getElementsByName('chartDataName')[idx].value,
+              value: document.getElementsByName('chartDataNumber')[idx].value,
+              color:
+                document.getElementsByName('chartDataColor')[idx].value === ''
+                  ? randomColor[Math.floor(Math.random() * randomColor.length)]
+                  : document.getElementsByName('chartDataColor')[idx].value,
+            });
+          });
+
+          chartBar('#svgChartBar', chartData);
+        }
+
+        // 입력된 옵션으로, 차트를 그려줍니다.
+        function chartDataAdd() {
+          let inputData = [];
+          document.getElementsByName('chartDataName').forEach((item, idx) => {
+            inputData.push({
+              name: item.value,
+              value: document.getElementsByName('chartDataNumber')[idx].value,
+              color: document.getElementsByName('chartDataColor')[idx].value,
+            });
+          });
+          dataLength++;
+          document.getElementById('chartDataPlus').innerHTML +=
+            '<dl>\n' +
+            '  <dt>' +
+            dataLength +
+            '</dt>\n' +
+            '  <dd>\n' +
+            '    <input type="text" name="chartDataName" placeholder="이름" />\n' +
+            '    <input type="number" name="chartDataNumber" placeholder="숫자" />\n' +
+            '    <input type="text" name="chartDataColor" placeholder="차트색상" />\n' +
+            '  </dd>\n' +
+            '</dl>';
+
+          inputData.forEach((item, idx) => {
+            document.getElementsByName('chartDataName')[idx].value = item.name;
+            document.getElementsByName('chartDataNumber')[idx].value = item.value;
+            document.getElementsByName('chartDataColor')[idx].value = item.color;
+          });
+        }
+
+        // 샘플 차트 데이터를 입력하고, 차트를 그려줍니다.
+        function autoSet() {
+          document.getElementById('chartDataPlus').innerHTML =
+            '<h2>\n' +
+            '  차트 데이터 입력\n' +
+            '  <button type="button" class="btn-data-add" onclick="chartDataAdd();">추가</button>\n' +
+            '</h2>\n' +
+            '<dl>\n' +
+            '  <dt>1</dt>\n' +
+            '  <dd>\n' +
+            '    <input type="text" name="chartDataName" placeholder="이름" />\n' +
+            '    <input type="number" name="chartDataNumber" placeholder="숫자" />\n' +
+            '    <input type="text" name="chartDataColor" placeholder="차트색상" />\n' +
+            '  </dd>\n' +
+            '</dl>\n';
+
+          dataLength = 1;
+          for (let i = 0; i < 6; i++) {
+            chartDataAdd();
+          }
+          document.getElementById('barChartWidth').value = 600;
+          document.getElementById('barChartHeight').value = 400;
+          document.getElementsByName('barChartUnit')[0].checked = true;
+          document.getElementById('barChartUnitText').value = '개';
+          document.getElementById('chartBarRadius').value = 5;
+          document.getElementsByName('chartDataName').forEach((item, idx) => {
+            document.getElementsByName('chartDataName')[idx].value = 'Sample' + (idx + 1);
+            document.getElementsByName('chartDataNumber')[idx].value = Math.floor(
+              Math.random() * 10 + 1
+            );
+          });
+          barChartSet();
+        }
+      </script>
+    </div>
+  </body>
+</html>
