@@ -103,15 +103,15 @@
   "buffers": [
     {
       "byteLength": 204440,
-      "uri": "https://kimsuraaaa.github.io/khs/image/item/ice_bear_we_bare_bears/scene.bin"
+      "uri": "https://fe-hyunsu.github.io/intro/image/item/ice_bear_we_bare_bears/scene.bin"
     }
   ],
   "images": [
     {
-      "uri": "https://kimsuraaaa.github.io/khs/image/item/ice_bear_we_bare_bears/textures/lambert4_baseColor.jpeg"
+      "uri": "https://fe-hyunsu.github.io/intro/image/item/ice_bear_we_bare_bears/textures/lambert4_baseColor.jpeg"
     },
     {
-      "uri": "https://kimsuraaaa.github.io/khs/image/item/ice_bear_we_bare_bears/textures/lambert1_baseColor.jpeg"
+      "uri": "https://fe-hyunsu.github.io/intro/image/item/ice_bear_we_bare_bears/textures/lambert1_baseColor.jpeg"
     }
   ],
   "materials": [
