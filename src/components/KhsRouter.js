@@ -10,17 +10,17 @@ import Aptitude from './project/apitiude/AptitudeMain';
 export default function KhsRouter() {
   return (
     <>
-      <HashRouter basename="/khs/#">
+      <HashRouter basename="/intro/#">
         <Switch>
           <Route path="/" exact={true} component={Intro} />
           <Route path="/begin" component={Begin} />
           <Route path="/mbti" component={MBTI} />
           <Route path="/main" component={Main} />
           <Route path="/aptitude" component={Aptitude} />
-          
-          <Route path='*' component={NotFoundPage} />
+
+          <Route path="*" component={NotFoundPage} />
         </Switch>
       </HashRouter>
     </>
-  )
+  );
 }

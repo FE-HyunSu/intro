@@ -16,15 +16,12 @@ export default function MBTIResult(props, resultList) {
 
   const moveMain = () => {
     localStorage.setItem('mbti', document.getElementById('mbtiType').innerText);
-    window.location.href = '/khs/#/main';
+    window.location.href = '/intro/#/main';
   };
 
   useEffect(() => {
     resultView(
-      props.resultList[0] +
-        props.resultList[1] +
-        props.resultList[2] +
-        props.resultList[3]
+      props.resultList[0] + props.resultList[1] + props.resultList[2] + props.resultList[3]
     );
 
     // hsPackage.minHeightFull('.mbti-col');
@@ -38,9 +35,7 @@ export default function MBTIResult(props, resultList) {
             <span className="progress-item">결과 확인 중</span>
           </div>
           {MbtiResultData &&
-            MbtiResultData.filter(
-              (item) => item.resultType === filterResult
-            ).map((item, index) => (
+            MbtiResultData.filter((item) => item.resultType === filterResult).map((item, index) => (
               <div className="result-box" key={index}>
                 <dl>
                   <dt className={item.resultType}>
@@ -52,14 +47,8 @@ export default function MBTIResult(props, resultList) {
                     <button type="button" onClick={moveMain}>
                       완료
                     </button>
-                    <span>
-                      * 이미지 및 설문 정보 출처 : www.16personalities.com
-                    </span>
-                    <button
-                      type="button"
-                      className="btn-text"
-                      onClick={reStart}
-                    >
+                    <span>* 이미지 및 설문 정보 출처 : www.16personalities.com</span>
+                    <button type="button" className="btn-text" onClick={reStart}>
                       다시하기
                     </button>
                   </dd>

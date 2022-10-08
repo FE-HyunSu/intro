@@ -24,23 +24,17 @@ export default function Header() {
   const reSetIntro = () => {
     localStorage.removeItem('userName');
     localStorage.removeItem('mbti');
-    window.location.href = '/khs/#/';
+    window.location.href = '/intro/#/';
   };
 
   const mbtiInfo =
-    MbtiData &&
-    MbtiData.filter((list) => list.resultType === localStorage.getItem('mbti'));
+    MbtiData && MbtiData.filter((list) => list.resultType === localStorage.getItem('mbti'));
 
   useEffect(() => {
     let mbti = localStorage.getItem('mbti');
     let name = localStorage.getItem('userName');
 
-    if (
-      mbti === '' ||
-      name === '' ||
-      mbti === undefined ||
-      name === undefined
-    ) {
+    if (mbti === '' || name === '' || mbti === undefined || name === undefined) {
       reSetIntro();
     }
 
@@ -58,7 +52,7 @@ export default function Header() {
       <header className={isActive ? 'active' : null}>
         <div className="header-box">
           <h1>
-            <a href="/khs/">
+            <a href="/intro/">
               <em>K</em>
               <span>IM</span>
               <em>H</em>
