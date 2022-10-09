@@ -29,9 +29,8 @@ export default function Contact() {
               Tel : <a href="sms:01049221429">01049221429</a>
             </p>
             <p>
-              mail :{' '}
-              {/* <a href="mailto:sosu20161008@gmail.com">sosu20161008@gmail.com</a> */}
-              <a href="mailto:hyunsusora@gmail.com">hyunsusora@gmail.com</a>
+              mail :
+              <a href="mailto:fe.hyunsu@gmail.com">fe.hyunsu@gmail.com</a>
             </p>
           </div>
         </div>
