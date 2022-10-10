@@ -14,6 +14,7 @@ import img_nextjs from '../../assets/images/bloglist/img_nextjs.jpg';
 import img_editor from '../../assets/images/bloglist/img_editor.png';
 import img_tensorflow from '../../assets/images/bloglist/img_tensorflow.png';
 import img_redux from '../../assets/images/bloglist/img_redux.png';
+import img_aws from '../../assets/images/bloglist/img_aws.png';
 
 const commingSoon = () => {
   alert('업데이트 예정입니다.');
@@ -21,6 +22,14 @@ const commingSoon = () => {
 
 export default function PortfolioBlogList() {
   const motionList = [
+    {
+      mainTitle: 'AWS EC2',
+      subTitle: 'AWS EC2 Instance 서버 배포.',
+      pageURL:
+        'https://phase-litter-337.notion.site/FS-AWS-EC2-Instance-cab0284527ed416cb438d33cc62bf340',
+      linkType: 'blank',
+      imageURL: img_aws,
+    },
     {
       mainTitle: 'Redux 상태관리',
       subTitle: 'React-redux, redux-toolkit 으로 프로젝트에 상태관리 적용.',
