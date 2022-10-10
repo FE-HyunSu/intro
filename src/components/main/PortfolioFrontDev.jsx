@@ -161,9 +161,6 @@ export default function PortfolioFrontDev() {
             <span></span>
           </div>
           <div className="play-list">
-            {/* <button type='button' onClick={() => modalControl('test1')}>test</button>
-            <button type='button' onClick={() => modalControl('test2')}>test2</button>
-            <button type='button' onClick={() => modalControl('Aptitude')}>Aptitude</button> */}
             <ul>
               {motionList &&
                 motionList.map((item, idx) => (
