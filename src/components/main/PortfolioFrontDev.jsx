@@ -56,7 +56,7 @@ export default function PortfolioFrontDev() {
       mainTitle: 'HSBOT',
       keyword: '#TensorFlowjs',
       subTitle: 'TensorFlowjs를 활용, 학습하는 HSBOT을 만들어보자.',
-      pageURL: '/intro/project/hsbot/index.html',
+      pageURL: 'https://fe-hyunsu.github.io/hsbot/index.html',
       linkType: 'blank',
       imageURL: img_tensorflow,
     },

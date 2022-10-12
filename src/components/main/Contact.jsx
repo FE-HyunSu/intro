@@ -29,8 +29,12 @@ export default function Contact() {
               Tel : <a href="sms:01049221429">01049221429</a>
             </p>
             <p>
-              mail :
+              Mail :
               <a href="mailto:fe.hyunsu@gmail.com">fe.hyunsu@gmail.com</a>
+            </p>
+            <p>
+              Github :
+              <a href="https://github.com/fe-hyunsu" target="_blank">https://github.com/fe-hyunsu</a>
             </p>
           </div>
         </div>
