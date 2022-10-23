@@ -89,7 +89,7 @@ export default function PortfolioFrontDev() {
       mainTitle: 'Yanadoo EasterEgg 페이지 개발',
       keyword: '#프론트개발, #모션',
       subTitle: '그룹 순서 Random, 리더 멤버 고정, background 별똥별 Random, 캐릭터 아이콘 Random',
-      pageURL: '/intro/project/yndEasterEgg/yndEasterEgg.html',
+      pageURL: 'https://fe-hyunsu.github.io/yndEasterEgg',
       linkType: 'blank',
       imageURL: img_ynd_easterEgg,
     },
