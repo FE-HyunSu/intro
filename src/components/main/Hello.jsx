@@ -37,7 +37,6 @@ export default function Hello() {
     let light2 = new THREE.AmbientLight(0xffffff, 0.6);
     scene.add(light);
     scene.add(light2);
-    // console.log(modelItem);
 
     // 3d 오브젝트를 불러와서 변수에 담는다.
     let loader = new GLTFLoader();
@@ -119,13 +118,22 @@ export default function Hello() {
             <strong>Javascript</strong> 와 <strong>CSS Keyframe animation, WebGL</strong>등을
             사용하여 구현했습니다.
           </p>
-          <a
-            href="https://phase-litter-337.notion.site/Frontend-KHS-2353d76247774c8582e74ad61e71337c"
-            target="_blank"
-          >
-            <canvas id="introItem" width="200" height="200"></canvas>
-            <p>개인 노션 바로가기</p>
-          </a>
+          <canvas id="introItem" width="200" height="200"></canvas>
+          <p>
+            &ndash; 개인 노션 :
+            <a
+              href="https://phase-litter-337.notion.site/Frontend-KHS-2353d76247774c8582e74ad61e71337c"
+              target="_blank"
+            >
+              [바로가기]
+            </a>
+          </p>
+          <p>
+            &ndash; Gitblog :
+            <a href="https://fe-hyunsu.github.io/" target="_blank">
+              https://fe-hyunsu.github.io/
+            </a>
+          </p>
         </div>
       </section>
     </>

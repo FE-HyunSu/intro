@@ -43,10 +43,9 @@
     text-align: center;
     word-break: keep-all;
   }
-  a {
-    display: block;
-    cursor: pointer;
-    p {
+  p {
+    a {
+      display: inline-block;
       color: #446ab3;
     }
   }
