@@ -120,18 +120,18 @@ export default function Hello() {
           </p>
           <canvas id="introItem" width="200" height="200"></canvas>
           <p>
+            &ndash; Gitblog :
+            <a href="https://fe-hyunsu.github.io/" target="_blank">
+              https://fe-hyunsu.github.io/
+            </a>
+          </p>
+          <p>
             &ndash; 개인 노션 :
             <a
               href="https://phase-litter-337.notion.site/Frontend-KHS-2353d76247774c8582e74ad61e71337c"
               target="_blank"
             >
               [바로가기]
-            </a>
-          </p>
-          <p>
-            &ndash; Gitblog :
-            <a href="https://fe-hyunsu.github.io/" target="_blank">
-              https://fe-hyunsu.github.io/
             </a>
           </p>
         </div>
