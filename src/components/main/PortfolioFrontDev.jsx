@@ -145,7 +145,7 @@ export default function PortfolioFrontDev() {
       mainTitle: 'Scroll event Sample (PC)',
       keyword: '#프론트개발, #모션',
       subTitle: 'Scroll event 활용 야나두 소개 샘플링 페이지 (javascript, css)',
-      pageURL: '/intro/project/yndInteraction/yndInteraction.html',
+      pageURL: 'https://fe-hyunsu.github.io/interaction',
       linkType: 'blank',
       imageURL: img_ynd_intro,
     },
