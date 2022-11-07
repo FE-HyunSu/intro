@@ -20,6 +20,7 @@ import img_ssaklog from '../../assets/images/main/img_ssaklog.png';
 import img_tensorflow from '../../assets/images/main/img_tensorflow.png';
 import img_d3chart from '../../assets/images/main/img_d3chart.png';
 import img_hookjobs from '../../assets/images/main/img_hookjobs.png';
+import img_accountbook from '../../assets/images/main/img_accountbook.png';
 
 let modalTarget = '';
 const commingSoon = () => {
@@ -37,10 +38,18 @@ export default function PortfolioFrontDev() {
 
   const motionList = [
     {
+      mainTitle: 'AccountBook',
+      keyword: '#Firebase, #React, #NextJS',
+      subTitle: '모임 통장 정산',
+      pageURL: 'https://illustrious-arithmetic-f0422e.netlify.app',
+      linkType: 'blank',
+      imageURL: img_accountbook,
+    },
+    {
       mainTitle: 'HookJobs (진행중)',
       keyword: '#React, #NextJS, #Hook',
       subTitle: 'React Hook 스터디 페이지',
-      pageURL: 'https://lustrous-dieffenbachia-6cdb15.netlify.app/',
+      pageURL: 'https://lustrous-dieffenbachia-6cdb15.netlify.app',
       linkType: 'blank',
       imageURL: img_hookjobs,
     },
