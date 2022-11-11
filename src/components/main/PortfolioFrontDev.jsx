@@ -39,9 +39,9 @@ export default function PortfolioFrontDev() {
   const motionList = [
     {
       mainTitle: 'AccountBook',
-      keyword: '#Firebase, #React, #NextJS',
+      keyword: '#Firebase, #React, #NextJS, #Typescript',
       subTitle: '모임 통장 정산',
-      pageURL: 'https://illustrious-arithmetic-f0422e.netlify.app',
+      pageURL: 'https://tubular-cocada-39cf07.netlify.app',
       linkType: 'blank',
       imageURL: img_accountbook,
     },
