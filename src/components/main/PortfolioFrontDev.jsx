@@ -22,6 +22,7 @@ import img_d3chart from '../../assets/images/main/img_d3chart.png';
 import img_hookjobs from '../../assets/images/main/img_hookjobs.png';
 import img_accountbook from '../../assets/images/main/img_accountbook.png';
 import img_accountbook_admin from '../../assets/images/main/img_accountbook_admin.png';
+import img_endcredit from '../../assets/images/main/img_endcredit.png';
 
 let modalTarget = '';
 const commingSoon = () => {
@@ -38,6 +39,14 @@ export default function PortfolioFrontDev() {
   };
 
   const motionList = [
+    {
+      mainTitle: 'endcreditMotion',
+      keyword: '#프론트개발, #모션',
+      subTitle: '기존 js + html 페이지를 React Nextjs Typescript로 migration.',
+      pageURL: 'https://Endcreditmotion.netlify.app',
+      linkType: 'blank',
+      imageURL: img_endcredit,
+    },
     {
       mainTitle: 'AccountBook Admin',
       keyword: '#Firebase, #React, #NextJS, #Typescript, #Recoil',
