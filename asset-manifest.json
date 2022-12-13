@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/intro/static/css/main.b7e27fb3.css",
-    "main.js": "/intro/static/js/main.ee444e3e.js",
+    "main.js": "/intro/static/js/main.563f3486.js",
     "static/js/787.130afaa7.chunk.js": "/intro/static/js/787.130afaa7.chunk.js",
     "static/media/img_ticketing.png": "/intro/static/media/img_ticketing.6e4dec35a38238f8fdaa.png",
     "static/media/img_spooner.png": "/intro/static/media/img_spooner.524280f1c55fd96c3f81.png",
@@ -87,6 +87,7 @@
     "static/media/img_ynd_intro.jpg": "/intro/static/media/img_ynd_intro.82b689fba0fbce39401e.jpg",
     "static/media/img_d3chart.png": "/intro/static/media/img_d3chart.33aa6893939bd4f2f82c.png",
     "static/media/img_aptitude_result_all_216x216.png": "/intro/static/media/img_aptitude_result_all_216x216.800c1aeda51f6b552d56.png",
+    "static/media/img_endcredit.png": "/intro/static/media/img_endcredit.68c593f9d1ab5c777b48.png",
     "static/media/img_ssaklog.png": "/intro/static/media/img_ssaklog.bca07367b07733387ed3.png",
     "static/media/img_editor.png": "/intro/static/media/img_editor.f280dab23beab2ff6184.png",
     "static/media/img_npmpackage.png": "/intro/static/media/img_npmpackage.103c413a57ab50983c81.png",
@@ -99,11 +100,11 @@
     "static/media/scene.gltf": "/intro/static/media/scene.8aefb88a4c1d5cc76615.gltf",
     "index.html": "/intro/index.html",
     "main.b7e27fb3.css.map": "/intro/static/css/main.b7e27fb3.css.map",
-    "main.ee444e3e.js.map": "/intro/static/js/main.ee444e3e.js.map",
+    "main.563f3486.js.map": "/intro/static/js/main.563f3486.js.map",
     "787.130afaa7.chunk.js.map": "/intro/static/js/787.130afaa7.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.b7e27fb3.css",
-    "static/js/main.ee444e3e.js"
+    "static/js/main.563f3486.js"
   ]
 }
