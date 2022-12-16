@@ -1,12 +1,12 @@
 {
   "files": {
     "main.css": "/intro/static/css/main.b7e27fb3.css",
-    "main.js": "/intro/static/js/main.c9a9c337.js",
+    "main.js": "/intro/static/js/main.9f397cee.js",
     "static/js/787.130afaa7.chunk.js": "/intro/static/js/787.130afaa7.chunk.js",
     "static/media/img_ticketing.png": "/intro/static/media/img_ticketing.6e4dec35a38238f8fdaa.png",
     "static/media/img_spooner.png": "/intro/static/media/img_spooner.524280f1c55fd96c3f81.png",
     "static/media/img_aptitudetest_start_2016x2106.png": "/intro/static/media/img_aptitudetest_start_2016x2106.a110a42363e2b12de72e.png",
-    "static/media/img_live_weather.png": "/intro/static/media/img_live_weather.47cb5c38bf22d7ddae5c.png",
+    "static/media/img_live_weather.png": "/intro/static/media/img_live_weather.43f95c05ec6c6c64b204.png",
     "static/media/img_aptitude.png": "/intro/static/media/img_aptitude.14f6ef6d64e48486395e.png",
     "static/media/img_bettingspoon.png": "/intro/static/media/img_bettingspoon.f10599082c398f4c93e8.png",
     "static/media/img_ynd_yu.png": "/intro/static/media/img_ynd_yu.79c3fe0b14d839a88be6.png",
@@ -101,11 +101,11 @@
     "static/media/scene.gltf": "/intro/static/media/scene.8aefb88a4c1d5cc76615.gltf",
     "index.html": "/intro/index.html",
     "main.b7e27fb3.css.map": "/intro/static/css/main.b7e27fb3.css.map",
-    "main.c9a9c337.js.map": "/intro/static/js/main.c9a9c337.js.map",
+    "main.9f397cee.js.map": "/intro/static/js/main.9f397cee.js.map",
     "787.130afaa7.chunk.js.map": "/intro/static/js/787.130afaa7.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.b7e27fb3.css",
-    "static/js/main.c9a9c337.js"
+    "static/js/main.9f397cee.js"
   ]
 }
