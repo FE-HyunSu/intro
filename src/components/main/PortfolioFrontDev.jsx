@@ -23,6 +23,7 @@ import img_hookjobs from '../../assets/images/main/img_hookjobs.png';
 import img_accountbook from '../../assets/images/main/img_accountbook.png';
 import img_accountbook_admin from '../../assets/images/main/img_accountbook_admin.png';
 import img_endcredit from '../../assets/images/main/img_endcredit.png';
+import img_live_weather from '../../assets/images/main/img_live_weather.png';
 
 let modalTarget = '';
 const commingSoon = () => {
@@ -39,6 +40,14 @@ export default function PortfolioFrontDev() {
   };
 
   const motionList = [
+    {
+      mainTitle: 'LiveWeatherInfomation',
+      keyword: '#프론트개발',
+      subTitle: 'Open API 활용, 실시간 위치 날씨 정보 제공.',
+      pageURL: 'https://hsliveweather.netlify.app/',
+      linkType: 'blank',
+      imageURL: img_live_weather,
+    },
     {
       mainTitle: 'endcreditMotion',
       keyword: '#프론트개발, #모션',
