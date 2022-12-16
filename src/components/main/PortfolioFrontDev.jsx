@@ -41,14 +41,6 @@ export default function PortfolioFrontDev() {
 
   const motionList = [
     {
-      mainTitle: 'LiveWeatherInfomation',
-      keyword: '#프론트개발',
-      subTitle: 'Open API 활용, 실시간 위치 날씨 정보 제공.',
-      pageURL: 'https://hsliveweather.netlify.app/',
-      linkType: 'blank',
-      imageURL: img_live_weather,
-    },
-    {
       mainTitle: 'endcreditMotion',
       keyword: '#프론트개발, #모션',
       subTitle: '기존 js + html 페이지를 React Nextjs Typescript로 migration.',
@@ -71,6 +63,14 @@ export default function PortfolioFrontDev() {
       pageURL: 'https://tubular-cocada-39cf07.netlify.app',
       linkType: 'blank',
       imageURL: img_accountbook,
+    },
+    {
+      mainTitle: 'LiveWeatherInfomation',
+      keyword: '#프론트개발',
+      subTitle: 'Open API 활용, 실시간 위치 날씨 정보 제공.',
+      pageURL: 'https://hsliveweather.netlify.app/',
+      linkType: 'blank',
+      imageURL: img_live_weather,
     },
     {
       mainTitle: 'Yanadoo EasterEgg 페이지 개발',
