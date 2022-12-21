@@ -73,7 +73,7 @@ export default function PortfolioFrontDev() {
       imageURL: img_live_weather,
     },
     {
-      mainTitle: 'Yanadoo EasterEgg 페이지 개발',
+      mainTitle: 'YND EasterEgg 페이지 개발',
       keyword: '#프론트개발, #모션',
       subTitle: '그룹 순서 Random, 리더 멤버 고정, background 별똥별 Random, 캐릭터 아이콘 Random',
       pageURL: 'https://fe-hyunsu.github.io/yndEasterEgg',
@@ -130,15 +130,15 @@ export default function PortfolioFrontDev() {
       imageURL: img_hookjobs,
     },
     {
-      mainTitle: 'Yanadoo University',
+      mainTitle: 'YND University',
       keyword: '#퍼블리싱, #모션',
       subTitle: '야나두 입학소개 페이지',
-      pageURL: '/intro/project/yndYanadooUniversity/yndYanadooUniversity.html',
+      pageURL: '/intro/project/yndUniversity/yndUniversity.html',
       linkType: 'blank',
       imageURL: img_ynd_yu,
     },
     {
-      mainTitle: 'Yanadoo 적성검사',
+      mainTitle: 'YND 적성검사',
       keyword: '#프론트개발, #React',
       subTitle: '적성검사',
       pageURL: '/intro/#/Aptitude',
