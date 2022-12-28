@@ -73,14 +73,6 @@ export default function PortfolioFrontDev() {
       imageURL: img_live_weather,
     },
     {
-      mainTitle: 'YND EasterEgg 페이지 개발',
-      keyword: '#프론트개발, #모션',
-      subTitle: '그룹 순서 Random, 리더 멤버 고정, background 별똥별 Random, 캐릭터 아이콘 Random',
-      pageURL: 'https://fe-hyunsu.github.io/yndEasterEgg',
-      linkType: 'blank',
-      imageURL: img_ynd_easterEgg,
-    },
-    {
       mainTitle: 'D3Chart',
       keyword: '#D3js',
       subTitle: 'D3js를 활용, 입력받은 데이터로 그래프를 그려보자.',
