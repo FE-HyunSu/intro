@@ -24,6 +24,7 @@ import img_accountbook from '../../assets/images/main/img_accountbook.png';
 import img_accountbook_admin from '../../assets/images/main/img_accountbook_admin.png';
 import img_endcredit from '../../assets/images/main/img_endcredit.png';
 import img_live_weather from '../../assets/images/main/img_live_weather.png';
+import img_whereareyou from '../../assets/images/main/img_whereareyou.png';
 
 let modalTarget = '';
 const commingSoon = () => {
@@ -40,6 +41,14 @@ export default function PortfolioFrontDev() {
   };
 
   const motionList = [
+    {
+      mainTitle: '거기 지금 어디야',
+      keyword: '#프론트개발, #KAKAO api',
+      subTitle: '친구에게 내 위치 카카오톡으로 공유.',
+      pageURL: 'https://hswhereareyou.netlify.app',
+      linkType: 'blank',
+      imageURL: img_whereareyou,
+    },
     {
       mainTitle: 'endcreditMotion',
       keyword: '#프론트개발, #모션',
