@@ -6,7 +6,7 @@
 
 ### 👩‍🚀 구현 내용.
 
-<img src="https://reliable-florentine-21f16f.netlify.app/img_readme.png" width="600" alt="" />
+<img src="https://fe-hyunsu.github.io/intro/img_readme.png" width="600" alt="" />
 
 - 이름 입력, 1분 MBTI 진행.
 
