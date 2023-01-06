@@ -40,10 +40,6 @@ export default function MBTIStep(props) {
     }
   });
 
-  useEffect(() => {
-    // hsPackage.minHeightFull('.mbti-col');
-  }, []);
-
   return (
     <>
       <section className="mbti-col">
@@ -53,31 +49,29 @@ export default function MBTIStep(props) {
               <span></span>
             </div>
             {MbtiTestData &&
-              MbtiTestData.filter((item, index) => index === step).map(
-                (item, index) => (
-                  <dl key={index}>
-                    <dt className={`step-title ` + item.category}>
-                      {item.question.split('\n').map((content, index) => (
-                        <strong key={index}>{content}</strong>
-                      ))}
-                    </dt>
-                    <dd>
-                      {item.option.map((sub, subIndex) => (
-                        <label key={subIndex}>
-                          <input
-                            type="radio"
-                            name={`step` + (step + 1)}
-                            value={sub.value}
-                            className="step-item"
-                            onChange={nextStep}
-                          />
-                          <strong>{sub.content}</strong>
-                        </label>
-                      ))}
-                    </dd>
-                  </dl>
-                )
-              )}
+              MbtiTestData.filter((item, index) => index === step).map((item, index) => (
+                <dl key={index}>
+                  <dt className={`step-title ` + item.category}>
+                    {item.question.split('\n').map((content, index) => (
+                      <strong key={index}>{content}</strong>
+                    ))}
+                  </dt>
+                  <dd>
+                    {item.option.map((sub, subIndex) => (
+                      <label key={subIndex}>
+                        <input
+                          type="radio"
+                          name={`step` + (step + 1)}
+                          value={sub.value}
+                          className="step-item"
+                          onChange={nextStep}
+                        />
+                        <strong>{sub.content}</strong>
+                      </label>
+                    ))}
+                  </dd>
+                </dl>
+              ))}
           </div>
         </div>
       </section>

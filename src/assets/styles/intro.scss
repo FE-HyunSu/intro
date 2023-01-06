@@ -1,7 +1,10 @@
 .intro-col {
   position: relative;
   width: 100%;
-  height: 100%;
+  height: 100vh;
+  @supports (-webkit-appearance: none) and (stroke-color: transparent) {
+    height: -webkit-fill-available;
+  }
   transition: 1s;
   opacity: 1;
 

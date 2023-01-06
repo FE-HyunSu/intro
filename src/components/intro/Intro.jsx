@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import * as common from '../../js/common';
 import '../../assets/styles/common.scss';
 import '../../assets/styles/intro.scss';
 
@@ -56,7 +55,6 @@ export default function Intro() {
   useEffect(() => {
     document.querySelector('.intro-col').classList.add('active');
     loginChecking();
-    common.windowHeightFull();
     loginCheck
       ? (document.getElementById('btnSkip').style.display = 'block')
       : (document.getElementById('btnSkip').style.display = 'none');
