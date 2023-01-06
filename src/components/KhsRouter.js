@@ -17,7 +17,6 @@ export default function KhsRouter() {
           <Route path="/mbti" component={MBTI} />
           <Route path="/main" component={Main} />
           <Route path="/aptitude" component={Aptitude} />
-
           <Route path="*" component={NotFoundPage} />
         </Switch>
       </HashRouter>
