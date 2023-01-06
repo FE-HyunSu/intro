@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import * as common from '../../js/common';
 import '../../assets/styles/common.scss';
 import '../../assets/styles/begin.scss';
 
@@ -136,7 +135,6 @@ export default function Begin() {
 
   useEffect(() => {
     introMotion(150);
-    common.windowHeightFull();
     return () => {
       clearInterval(motionTimer);
     };

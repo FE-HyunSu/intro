@@ -9,7 +9,10 @@
   position: relative;
   align-items: center;
   justify-content: center;
-  height: 100%;
+  min-height: 100vh;
+  @supports (-webkit-appearance: none) and (stroke-color: transparent) {
+    min-height: -webkit-fill-available;
+  }
   transition: 1s;
   opacity: 1;
 
@@ -64,8 +67,7 @@
           animation: motion-view 1s 2.5s forwards;
         }
         .last-item {
-          animation: intro-motion 1s 1.5s forwards,
-            motion-cursor 1.5s 2.5s infinite;
+          animation: intro-motion 1s 1.5s forwards, motion-cursor 1.5s 2.5s infinite;
         }
       }
     }
