@@ -10,7 +10,8 @@ export function getParameterByName(name) {
 export function setCookie(key, value, expiredays) {
   var todayDate = new Date();
   todayDate.setDate(todayDate.getDate() + expiredays);
-  document.cookie = key + "=" + escape(value) + "; path=/; expires=" + todayDate.toGMTString() + ";"
+  document.cookie =
+    key + '=' + escape(value) + '; path=/; expires=' + todayDate.toGMTString() + ';';
 }
 
 export function getCookie(key) {
@@ -32,8 +33,4 @@ export function getCookie(key) {
 
 export function deleteCookie(name) {
   document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
-}
-
-export function windowHeightFull() {
-  document.querySelector('main').style.height = window.innerHeight + 'px';
 }

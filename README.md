@@ -8,6 +8,7 @@
 
 <img src="https://fe-hyunsu.github.io/intro/img_readme.png" width="600" alt="" />
 
+- 개인 소개.
 - 입력 받은 이름 저장, 1분 MBTI 진행.
 
 ### 🏂 URL.
