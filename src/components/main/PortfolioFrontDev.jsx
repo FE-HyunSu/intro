@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import '../../assets/styles/common.scss';
 import '../../assets/styles/main.scss';
 
@@ -9,7 +9,6 @@ import Aptitude from '../project/apitiude/AptitudeMain';
 
 import img_ynd_intro from '../../assets/images/main/img_ynd_intro.jpg';
 import img_ticketing from '../../assets/images/main/img_ticketing.png';
-import img_ynd_easterEgg from '../../assets/images/img_ynd_easter_egg.png';
 import img_npmPackage from '../../assets/images/main/img_npmpackage.png';
 import img_spooner from '../../assets/images/main/img_spooner.png';
 import img_bettingspoon from '../../assets/images/main/img_bettingspoon.png';
@@ -34,12 +33,6 @@ const commingSoon = () => {
 export default function PortfolioFrontDev() {
   // modal Open 여부 useState
   const [isOpenModal, setIsOpenModal] = useState(false);
-  // 해당 컴포넌트에 팝업이 n개일때 modalControl 함수를 통해 원하는 팝업을 노출 시킴
-  const modalControl = (modalName) => {
-    modalTarget = modalName;
-    setIsOpenModal(true);
-  };
-
   const motionList = [
     {
       mainTitle: '거기 지금 어디야',
